@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from cloudinary.models import CloudinaryField
 
+
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -20,11 +21,11 @@ class Category(models.Model):
 class Painting(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    image = CloudinaryField('image', default='placeholder')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="paintings")
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='category')
-    image = CloudinaryField('image', default='placeholder')
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=True)
