@@ -1,5 +1,7 @@
 # Masterpiece
 
+Code Institute Project nr 4.
+
 Masterpiece is an online painting-sharing app designed to inspire artists from all over the world. The app is aimed at users who want to share their paintings and build a thriving artistic community together.
 
 The site acts as a painting repository, allowing users to store their artworks, explore other users' paintings, and add them to their favorites.

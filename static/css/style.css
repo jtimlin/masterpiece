@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster|Mansalva|Anek+Bangla:wght@600|Open+Sans:300,400,600,700,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+body {
+  background: #fff;
+  font-family: Lobster, Helvetica, Arial, sans-serif;
+  color: #000;
+}
+
+/* Logo */
+.logo h3 {
+    margin-top: 30px;
+    color: #C38B5C;
+    font-weight: 300;
+    font-size: 1.8em;
+    line-height: 0.30;
+    font-family: 'Lobster', cursive;    
+}
+
+.logo p {
+    font-size: 0.7em;
+    margin-left: 30px;
+    color: #545454; 
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: italic;
+    font-family: 'Mansalva', cursive;
+}
+
+/* Navbar */
+.navbar {
+    height: 6em;
+}
+
+.nav-link {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    z-index: 100;
+    text-transform: uppercase;
+    color: #627F7E;
+    text-decoration: none !important;
+    font-size: 1.2em;
+    font-family: 'Anek Bangla';
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.navbar-nav {
+    margin: 0 auto;
+}
+
+.navbar-text a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color:#C38B5C;
+    font-size: 1.2em;
+}
+
+.navbar-text a:hover {
+    color: #545454;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 5em;
+    text-align: center;
+    line-height: 5em;
+    color: #545454;
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-style: italic;
+    font-family: 'Mansalva', cursive;
+}
+        
+.container-swiper {
+    height: calc(100vh - 192px);
+    padding: 10px;
+    margin: 10px;
+}
+
+.painting1 {
+    background-image: url("{{ post.featured_image.url }}");
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Information on the painting */
+.painting-info {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.painting-info h2 {
+    color: #fff;
+}
