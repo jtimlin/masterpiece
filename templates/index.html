@@ -7,10 +7,10 @@
 
         <!-- Index Paintings -->
         {% for painting in painting_list %}
-        <div class="col container-swiper painting1">
+        <div class="col container-swiper painting1" style="background-image: url('{{ painting.image.url }}'); background-size: cover; background-position: center;">
             <div class="painting-info">
                 <h2 class="mb-3">{{ painting.title }}</h2>
-                <a href="{% url 'painting_detail' painting.slug %}" class="btn btn-outline-light py-2 px-4">Details</a>
+                <a href="#" class="btn btn-outline-light py-2 px-4">Details</a>
             </div>
         </div>
         {% if forloop.counter|divisibleby:3 %}
@@ -18,7 +18,7 @@
     <div class="row">
         {% endif %}    
         {% endfor %}
-    </div>        
+    </div>   
 </div>
 
 {% endblock %}

@@ -19,6 +19,9 @@ class Category(models.Model):
 
 
 class Painting(models.Model):
+    """
+    Model for Painting
+    """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     image = CloudinaryField('image', default='placeholder')
@@ -37,7 +40,7 @@ class Painting(models.Model):
 
     def __str__(self):
         return self.title
-    
+
     def number_of_likes(self):
         return self.likes.count()
 

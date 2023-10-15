@@ -31,21 +31,22 @@
                 <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
                 <li class="nav-item">
-                <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
+                <a class="nav-link" href="#">About Us</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
+                <a class="nav-link" href="#">Gallery</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Join Us!</a>
+                <a class="nav-link" href="#">Join Us!</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                <a class="nav-link" href="#">Login</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                <a class="nav-link" href="#">Logout</a>
               </li>
+              {% endif %}
             </ul>
             <span class="navbar-text nav-link">
               <a href="#" class="me-2"><i class="fab fa-facebook"></i></a>
