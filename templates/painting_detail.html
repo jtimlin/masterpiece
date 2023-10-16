@@ -7,7 +7,7 @@
 
     <!-- Large Painting -->
     {% if "placeholder" in painting.image.url %}
-    <img src="https://res.cloudinary.com/dxjwzyf7j/image/upload/v1690982163/placeholder.jpg"
+    <img src="#"
         class="img-fluid rounded painting-detail-img" alt="placeholder image">
     {% else %}
     <img src="{{ painting.image.url }}" alt="Painting image" class="img-fluid rounded painting-detail-img">
@@ -90,8 +90,8 @@
         <h5 class="card-header">Leave a comment as: {{ user.username  }}</h5>
         <div class="card-body">
             <form method="post">
-                {{ comment_form | crispy }}
                 {% csrf_token %}
+                {{ comment_form | crispy }}
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
             </form>
         </div>

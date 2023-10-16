@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
-from pathlib import Path
 import os
+from pathlib import Path
+
 import dj_database_url
 if os.path.isfile('env.py'):
     import env
@@ -29,7 +29,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['masterpiece23-cbdad7ea4f9e.herokuapp.com', '8000-jindah-masterpiece-o0qms0hmslf.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = [
+    'masterpiece23-cbdad7ea4f9e.herokuapp.com',
+    '8000-jindah-masterpiece-o0qms0hmslf.ws-eu105.gitpod.io']
 
 
 # Application definition
@@ -62,7 +64,6 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
