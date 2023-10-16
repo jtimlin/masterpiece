@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
-from .models import Painting
+from .models import Painting, Comment
+from .forms import CommentForm
 
 
 class PaintingList(generic.ListView):
