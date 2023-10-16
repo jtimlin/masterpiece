@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}Masterpiece - {{ painting.title }}{% endblock %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+<div class="container text-center">
+
+    <!-- Large Painting -->
+    {% if "placeholder" in painting.image.url %}
+    <img src="https://res.cloudinary.com/dxjwzyf7j/image/upload/v1690982163/placeholder.jpg"
+        class="img-fluid rounded painting-detail-img" alt="placeholder image">
+    {% else %}
+    <img src="{{ painting.image.url }}" alt="Painting image" class="img-fluid rounded painting-detail-img">
+    {% endif %}
+
+    <!-- Painting Details and Like Button -->
+    <div>
+        <h2 class="mt-3">{{ painting.title }}</h2>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+        <form class="d-inline" action="{% url 'like_painting' painting.slug %}" method="POST">
+            {% csrf_token %}
+            {% if liked %}
+            <button class="action-btn btn btn-info" type="submit" name="like_id"
+                value="{{painting.slug}}" aria-label="heart-outline">
+                <i class="fas fa-heart"></i>
+            </button>
+            {% else %}
+            <button class="action-btn btn btn-info" type="submit" name="like_id"
+                value="{{painting.slug}}" aria-label="heart-solid">
+                <i class="far fa-heart"></i>
+            </button>
+            {% endif %}
+        </form>
+        {% endif %}
+        {% if user.is_authenticated and painting.author == user %}
+        <span>
+            <a class="action-btn btn btn-info" href="{% url 'update_painting' painting.slug %}"
+                aria-label="edit-painting">
+                <i class="fas fa-edit"></i>
+            </a>
+        </span>
+        <span>
+            <a class="action-btn btn btn-info" href="{% url 'delete_painting' painting.slug %}"
+                aria-label="delete-painting">
+                <i class="fas fa-times"></i>
+            </a>
+        </span>
+        {% endif %}
+        </div>
+    <p>By: {{ painting.author }}</p>
+
+    <!-- Comments Section -->
+    {% if comments %}
+    <div class="card">
+        <div class="card-header">
+          Comments
+        </div>
+        <div class="card-body">
+          {% for comment in comments %}
+          <div>
+              <p class="font-weight-bold">
+                  {{ comment.name }}
+                  <span class=" text-muted font-weight-normal">
+                      {{ comment.created_on }}
+                  </span>
+                  {% if user.is_authenticated and user.username == comment.name %}
+                  <span class="comment-action-btn pl-2">
+                      <a href="{% url 'update_comment' comment.id %}" aria-label="update-comment">
+                          <i class="fas fa-edit link-primary"></i>
+                      </a>
+                      <a href="{% url 'delete_comment' comment.id %}" aria-label="delete-comment">
+                          <i class="fas fa-times"></i>
+                      </a>
+                  </span>
+                  {% endif %}
+              </p>
+              {{ comment.body | linebreaks }}
+              <hr>
+          </div>
+          {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Create comment -->
+    {% if user.is_authenticated %}
+    <div class="card">
+        <h5 class="card-header">Leave a comment as: {{ user.username  }}</h5>
+        <div class="card-body">
+            <form method="post">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-dark">Submit</button>
+            </form>
+        </div>
+      </div>
+    {% endif %}
+</div>
+
+{% endblock content %}
