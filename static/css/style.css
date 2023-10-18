@@ -8,7 +8,7 @@
 
 body {
   background: #fff;
-  font-family: Lobster, Helvetica, Arial, sans-serif;
+  font-family: Anek Bangla, Helvetica, Arial, sans-serif;
   color: #000;
 }
 
@@ -110,4 +110,8 @@ body {
 
 .painting-info h2 {
     color: #fff;
+}
+
+.painting-title {
+    font-family: 'Lobster', cursive;
 }
