@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Painting, Comment
@@ -20,7 +21,7 @@ class PaintingList(generic.ListView):
 
 class PaintingDetail(View):
 
-    def get(self, request, slug):
+    def get(self, request, slug, *args, **kwargs):
         """
         Retrives the painting and related comments from the database
         """
@@ -41,7 +42,7 @@ class PaintingDetail(View):
             },
         )
 
-    def post(self, request, slug):
+    def post(self, request, slug, *args, **kwargs):
         """
         This method is called when a POST request is made to the view
         via the comment form.
@@ -74,3 +75,25 @@ class PaintingDetail(View):
                 "liked": liked,
             },
         )
+
+
+class LikePainting(LoginRequiredMixin, View):
+    """
+    This view allows a logged in user to bookmark paintings.
+    """
+
+    def post(self, request, slug, *args, **kwargs):
+        """
+        Checks if user id already exists in the favourites
+        field in the Painting database.
+        If they exist then remove them from the database.
+        If they don't exist then add them to the database.
+        """
+        painting = get_object_or_404(Painting, slug=slug)
+        if painting.likes.filter(id=request.user.id).exists():
+            painting.likes.remove(request.user)
+            messages.success(self.request, 'Painting removed from likes')
+        else:
+            painting.likes.add(request.user)
+            messages.success(self.request, 'Painting added to likes')
+        return HttpResponseRedirect(reverse('painting_detail', args=[slug]))
