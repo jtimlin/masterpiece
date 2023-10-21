@@ -14,8 +14,8 @@
     {% endif %}
 
     <!-- Painting Details and Like Button -->
-    <div>
-        <h2 class="mt-3">{{ painting.title }}</h2>
+    <div style="border: 1px solid red">
+        <h2 class="mt-3 painting-title">{{ painting.title }}</h2>
         <p>Artist: {{ painting.author }}</p>
     </div>
     <div>
@@ -46,9 +46,10 @@
 
     <!-- Comments Section -->
     {% if comments %}
-    <div class="card">
+<div class="row justify-content-center">
+    <div class="card mt-3 painting-detail-img">
         <div class="card-header">
-          Comments
+          <h5>Comments</h5>
         </div>
         <div class="card-body">
           {% for comment in comments %}
@@ -61,10 +62,10 @@
                   {% if user.is_authenticated and user.username == comment.name %}
                   <span class="comment-action-btn pl-2">
                       <a href="{% url 'update_comment' comment.id %}" aria-label="update-comment">
-                          <i class="fas fa-edit link-primary"></i>
+                        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                       </a>
                       <a href="{% url 'delete_comment' comment.id %}" aria-label="delete-comment">
-                          <i class="fas fa-times"></i>
+                        <i class="fa-sharp fa-solid fa-trash"></i>
                       </a>
                   </span>
                   {% endif %}
@@ -75,11 +76,11 @@
           {% endfor %}
         </div>
     </div>
-    {% endif %}
-
+    {% endif %} 
+    
     <!-- Create comment -->
     {% if user.is_authenticated %}
-    <div class="card">
+    <div class="card mt-3 painting-detail-img">
         <h5 class="card-header">Leave a comment as: {{ user.username  }}</h5>
         <div class="card-body">
             <form method="post">
@@ -90,6 +91,7 @@
         </div>
       </div>
     {% endif %}
+</div>
 </div>
 
 {% endblock content %}

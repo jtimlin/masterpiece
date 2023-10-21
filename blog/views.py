@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Painting, Comment
@@ -97,3 +98,70 @@ class LikePainting(LoginRequiredMixin, View):
             painting.likes.add(request.user)
             messages.success(self.request, 'Painting added to likes')
         return HttpResponseRedirect(reverse('painting_detail', args=[slug]))
+
+
+class UpdateComment(LoginRequiredMixin, UserPassesTestMixin,
+                    SuccessMessageMixin, generic.UpdateView):
+    """
+    This view is used to allow logged in users to update their own comments
+    """
+    model = Comment
+    form_class = CommentForm
+    template_name = 'update_comment.html'
+    success_message = "Comment updated successfully!"
+
+    def form_valid(self, form):
+        """
+        This method is called when valid form data has been posted.
+        The signed in user is set as the author of the comment.
+        """
+        form.instance.name = self.request.user.username
+        return super().form_valid(form)
+
+    def test_func(self):
+        """
+        Prevent another user from updating someone else's comment
+        """
+        comment = self.get_object()
+        return comment.name == self.request.user.username
+
+    def get_success_url(self):
+        """
+        Return to pointing detail view when comment updated successfully
+        """
+        painting = self.object.painting
+        return reverse_lazy('painting_detail', kwargs={'slug': painting.slug})
+
+
+class DeleteComment(LoginRequiredMixin, UserPassesTestMixin,
+                    generic.DeleteView):
+    """
+    This view is used to allow logged in users to delete their own comments
+    """
+    model = Comment
+    template_name = 'delete_comment.html'
+    success_message = "Comment deleted successfully"
+
+    def test_func(self):
+        """
+        Prevent another user from deleting someone else's comment
+        """
+        comment = self.get_object()
+        return comment.name == self.request.user.username
+
+    def delete(self, request, *args, **kwargs):
+        """
+        This function is used to display success message given
+        SuccessMessageMixin cannot be used in generic.DeleteView.
+        Credit: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        messages.success(self.request, self.success_message)
+        return super(DeleteComment, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        """
+        Return to painting detail view when comment deleted successfully
+        """
+        painting = self.object.painting
+        return reverse_lazy('painting_detail', kwargs={'slug': painting.slug})

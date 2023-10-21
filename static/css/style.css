@@ -78,6 +78,8 @@ body {
     text-transform: capitalize;
     font-style: italic;
     font-family: 'Mansalva', cursive;
+    background: rgba(255, 255, 255, 0.8);
+
 }
         
 .container-swiper {
