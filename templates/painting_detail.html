@@ -32,9 +32,9 @@
                 {% endif %}
             </form>
             {% else %}
-            <span class="text-secondary"><i class="far fa-heart"></i></span>
+            <span class="btn-like"><i class="far fa-heart"></i></span>
             {% endif %}
-            <span class="text-secondary"> {{ painting.number_of_likes }}</span>
+            <span class="btn-like"> {{ painting.number_of_likes }}</span>
             <p>Artist: {{ painting.author }}</p>
         <!-- Tahan tulee update painting jutut-->
         </div>
@@ -43,9 +43,9 @@
     <!-- Comments Section -->
     {% if comments %}
     <div class="row justify-content-center">
-        <div class="card mt-3 painting-detail-img">
+        <div class="card mt-3 painting-detail-img card-noborder">
             <div class="card-header">
-            <h5>Comments</h5>
+            <h5>Canvas Conversations</h5>
             </div>
             <div class="card-body">
             {% for comment in comments %}
