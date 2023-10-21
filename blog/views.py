@@ -62,7 +62,7 @@ class PaintingDetail(View):
             comment = comment_form.save(commit=False)
             comment.painting = painting
             comment.save()
-            messages.success(self.request, 'Comment successfully added')
+            messages.success(self.request, 'Your thoughts successfully added.')
         else:
             comment_form = CommentForm()
 
