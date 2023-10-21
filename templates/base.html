@@ -37,6 +37,14 @@
                 <a class="nav-link" href="#">Gallery</a>
               </li>
               {% if user.is_authenticated %}
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">My Paintings</a></li>
+                    <li><a class="dropdown-item" href="#">Upload Painting</a></li>
+                    <li><a class="dropdown-item" href="#">My Favorites</a></li>
+                  </ul>
+                </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'account_logout' %}">Logout - <span class="navbar-username">{{ user.username  }}</span></a>
               </li>
