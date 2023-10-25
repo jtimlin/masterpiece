@@ -1,18 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Masterpiece - Paintings I Like{% endblock %}
+{% block title %}Masterpiece - My Paintings{% endblock %}
 {% block content %}
 
 {% if user.is_authenticated %}
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <h1 class="page-title">Paintings I Like</h1>
+        <div class="col-12">
+            <h1 class="page-title">My Uploaded Paintings</h1>
         </div>
     </div>
     <hr class="home-break">
     <br>
-    <!-- Masterpiece Card -->
+    <!--  Paintings Cards -->
     <div class="row card-deck justify-content-center">
         {% for painting in painting_list %}
         <div class="col-sm-6 col-md-4 col-lg-3 px-1 d-flex align-items-stretch">
@@ -37,14 +37,12 @@
         </div>
         {% empty %}
         <div class="col-12">
-            <p>You haven't liked any paintings yet.</p>
+            <p>You haven't uploaded any paintings yet.</p>
         </div>
         {% endfor %}
     </div>
 </div>
 
 {% endif %}
-
-
 
 {% endblock %}

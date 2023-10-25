@@ -133,6 +133,22 @@ class LikePainting(LoginRequiredMixin, View):
         return HttpResponseRedirect(reverse('painting_detail', args=[slug]))
 
 
+class MyPaintings(LoginRequiredMixin, generic.ListView):
+    """
+    This view is used to display a list of paintings uploaded by the logged in
+    user.
+    """
+    model = Painting
+    template_name = 'my_paintings.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        """
+        Override get_queryset to filter by user
+        """
+        return Painting.objects.filter(author=self.request.user)
+
+
 class MyLikes(LoginRequiredMixin, generic.ListView):
     """
     This view allows a logged in user to view their favorite paintings.
