@@ -126,11 +126,26 @@ class LikePainting(LoginRequiredMixin, View):
         painting = get_object_or_404(Painting, slug=slug)
         if painting.likes.filter(id=request.user.id).exists():
             painting.likes.remove(request.user)
-            messages.success(self.request, 'Painting removed from likes')
+            messages.success(self.request, 'Painting removed from your favorites.')
         else:
             painting.likes.add(request.user)
-            messages.success(self.request, 'Painting added to likes')
+            messages.success(self.request, 'Painting added to my favorites.')
         return HttpResponseRedirect(reverse('painting_detail', args=[slug]))
+
+
+class MyLikes(LoginRequiredMixin, generic.ListView):
+    """
+    This view allows a logged in user to view their favorite paintings.
+    """
+    model = Painting
+    template_name = 'my_likes.html'
+    paginate_by = 8
+
+    def get_queryset(self):
+        """
+        Override get_queryset to filter by user likes
+        """
+        return Painting.objects.filter(likes=self.request.user.id)
 
 
 class UpdateComment(LoginRequiredMixin, UserPassesTestMixin,

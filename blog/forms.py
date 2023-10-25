@@ -2,6 +2,7 @@
 
 from django import forms
 from django_summernote.widgets import SummernoteWidget
+from django.core.validators import FileExtensionValidator
 from django.utils.text import slugify
 from .models import Comment, Painting
 
@@ -44,6 +45,11 @@ class PaintingForm(forms.ModelForm):
             'description',
         ]
 
+        # Make the 'image' field required
+        widgets = {
+            'image': forms.FileInput(attrs={'required': 'required'}),
+        }
+
     def save(self, commit=True):
         painting = super(PaintingForm, self).save(commit=False)
         painting.title = self.cleaned_data['title']
@@ -55,3 +61,14 @@ class PaintingForm(forms.ModelForm):
             painting.save()
 
         return painting
+    
+    def clean_image(self):
+        image = self.cleaned_data['image']
+        if image:
+            # Get the file extension
+            file_extension = image.name.split('.')[-1].lower()
+            # Validate that the file is an image
+            valid_extensions = ['jpg', 'jpeg', 'png', 'gif']
+            if file_extension not in valid_extensions:
+                raise forms.ValidationError("Only 'jpg', 'jpeg', 'png', 'gif' files accepted.")
+        return image

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Masterpiece - Paintings I Like{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="page-title">Paintings I Like</h1>
+        </div>
+    </div>
+    <hr class="home-break">
+    <br>
+    <!-- Masterpiece Card -->
+    <div class="row card-deck justify-content-center">
+        {% for painting in painting_list %}
+        <div class="col-sm-6 col-md-4 col-lg-3 px-1 d-flex align-items-stretch">
+            <div class="card card-detail mb-3 shadow-sm mx-auto mx-sm-2">
+                {% if "placeholder" in painting.image.url %}
+                <img src="#"
+                    class="card-img-top" alt="placeholder image">
+                {% else %}
+                <img src=" {{ painting.image.url }}" alt="painting image" class="card-img-top">
+                {% endif %}
+                <div class="card-body pb-1">
+                    <h2 class="card-title painting-detail-title text-truncate">{{ painting.title }}</h2>
+                    <p class="card-text">
+                        <span><i class="fa-solid fa-paintbrush"></i></span>
+                        <span>Artist: {{ painting.author }}</span>
+                        <span class="btn-like"><i class="far fa-heart"></i> {{ painting.number_of_likes }}</span>
+                    </p>
+                    <a href="{% url 'painting_detail' painting.slug %}" class="stretched-link"
+                        aria-label="painting-detail"></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endif %}
+
+
+
+{% endblock %}

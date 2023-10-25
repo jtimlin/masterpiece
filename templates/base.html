@@ -26,7 +26,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-underline">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
               </li>
@@ -42,7 +42,7 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">My Paintings</a></li>
                     <li><a class="dropdown-item" href="{% url 'add_painting' %}">Upload Painting</a></li>
-                    <li><a class="dropdown-item" href="#">My Favorites</a></li>
+                    <li><a class="dropdown-item" href="{% url 'my_likes' %}">My Favorites</a></li>
                   </ul>
                 </li>
               <li class="nav-item">
