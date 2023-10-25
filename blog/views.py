@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Painting, Comment
-from .forms import CommentForm
+from .forms import CommentForm, PaintingForm
 
 
 class PaintingList(generic.ListView):
@@ -32,6 +32,9 @@ class PaintingDetail(View):
         if painting.likes.filter(id=self.request.user.id).exists():
             liked = True
 
+        # Generate the URL for the 'painting_detail' view
+        detail_url = reverse('painting_detail', kwargs={'slug': painting.slug})
+
         return render(
             request,
             "painting_detail.html",
@@ -40,6 +43,7 @@ class PaintingDetail(View):
                 "comments": comments,
                 "comment_form": CommentForm(),
                 "liked": liked,
+                "detail_url": detail_url,
             },
         )
 
@@ -75,6 +79,35 @@ class PaintingDetail(View):
                 "comment_form": CommentForm(),
                 "liked": liked,
             },
+        )
+
+
+class AddPainting(LoginRequiredMixin, SuccessMessageMixin,
+                  generic.CreateView):
+    """
+    This view is used to allow logged in users to add a masterpiece
+    """
+    form_class = PaintingForm
+    template_name = 'add_painting.html'
+    success_message = "%(calculated_field)s was created successfully"
+
+    def form_valid(self, form):
+        """
+        This method is called when valid form data has been posted.
+        The signed in user is set as the author of the painting.
+        """
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    def get_success_message(self, cleaned_data):
+        """
+        This function overrides the get_success_message() method to add
+        the painting title into the success message.
+        source: https://docs.djangoproject.com/en/4.0/ref/contrib/messages/
+        """
+        return self.success_message % dict(
+            cleaned_data,
+            calculated_field=self.object.title,
         )
 
 
