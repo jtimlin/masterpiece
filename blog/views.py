@@ -82,11 +82,7 @@ class PaintingDetail(View):
         )
 
 
-class AddPainting(LoginRequiredMixin, SuccessMessageMixin,
-                  generic.CreateView):
-    """
-    This view is used to allow logged in users to add a masterpiece
-    """
+class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     form_class = PaintingForm
     template_name = 'add_painting.html'
     success_message = "%(calculated_field)s was created successfully"
@@ -94,10 +90,16 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin,
     def form_valid(self, form):
         """
         This method is called when valid form data has been posted.
-        The signed in user is set as the author of the painting.
+        The signed-in user is set as the author of the painting.
         """
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+    def get_success_url(self):
+        """
+        Redirect to the detail page of the newly added painting.
+        """
+        return reverse('painting_detail', args=[self.object.slug])
 
     def get_success_message(self, cleaned_data):
         """
@@ -147,6 +149,82 @@ class MyPaintings(LoginRequiredMixin, generic.ListView):
         Override get_queryset to filter by user
         """
         return Painting.objects.filter(author=self.request.user)
+
+
+class UpdatePainting(LoginRequiredMixin, UserPassesTestMixin,
+                   SuccessMessageMixin, generic.UpdateView):
+    """
+    This view is used to allow logged in users to edit their own paintings
+    """
+    model = Painting
+    form_class = PaintingForm
+    template_name = 'update_painting.html'
+    success_message = "%(calculated_field)s was updated successfully"
+
+    def get_success_url(self):
+        # Use reverse to dynamically generate the URL based on your URL pattern
+        return reverse('painting_detail', args=[self.object.slug])
+
+    def form_valid(self, form):
+        """
+        This method is called when valid form data has been posted.
+        The signed-in user is set as the author of the painting.
+        """
+        form.instance.author = self.request.user
+
+        # Check if a new image was provided
+        if 'image' not in form.changed_data:
+            # No new image provided, clear the image field error (if any)
+            form._errors.pop('image', None)
+
+        return super().form_valid(form)
+
+    def test_func(self):
+        """
+        Prevent another user from updating someone else's painting
+        """
+        painting = self.get_object()
+        return painting.author == self.request.user
+
+    def get_success_message(self, cleaned_data):
+        """
+        Override the get_success_message() method to add the painting title
+        into the success message.
+        source: https://docs.djangoproject.com/en/4.0/ref/contrib/messages/
+        """
+        return self.success_message % dict(
+            cleaned_data,
+            calculated_field=self.object.title,
+        )
+
+
+
+class DeletePainting(LoginRequiredMixin, UserPassesTestMixin,
+                   generic.DeleteView):
+    """
+    This view is used to allow logged in users to delete their own painting
+    """
+    model = Painting
+    template_name = 'delete_painting.html'
+    success_message = "Painting deleted successfully"
+    success_url = reverse_lazy('my_paintings')
+
+    def test_func(self):
+        """
+        Prevent another user from deleting someone else's painting
+        """
+        painting = self.get_object()
+        return painting.author == self.request.user
+
+    def delete(self, request, *args, **kwargs):
+        """
+        This function is used to display success message given
+        SuccessMessageMixin cannot be used in generic.DeleteView.
+        Credit: https://stackoverflow.com/questions/24822509/
+        success-message-in-deleteview-not-shown
+        """
+        messages.success(self.request, self.success_message)
+        return super(DeletePainting, self).delete(request, *args, **kwargs)
 
 
 class MyLikes(LoginRequiredMixin, generic.ListView):

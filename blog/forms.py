@@ -25,18 +25,17 @@ class CommentForm(forms.ModelForm):
 
 
 class PaintingForm(forms.ModelForm):
-    """
-    Add Painting Form
-    """
-
     def __init__(self, *args, **kwargs):
         super(PaintingForm, self).__init__(*args, **kwargs)
         self.fields['description'].widget = forms.Textarea(attrs={'rows': 3})
 
+        if self.instance.pk:  # Check if the form is in "edit" mode (instance has a primary key)
+            self.fields['image'].required = False
+            self.fields['image'].widget.attrs.pop('required', None)
+        else:
+            self.fields['image'].widget.attrs['required'] = 'required'
+
     class Meta:
-        """
-        Get painting model and choose fields to display
-        """
         model = Painting
         fields = [
             'image',
@@ -44,11 +43,6 @@ class PaintingForm(forms.ModelForm):
             'category',
             'description',
         ]
-
-        # Make the 'image' field required
-        widgets = {
-            'image': forms.FileInput(attrs={'required': 'required'}),
-        }
 
     def save(self, commit=True):
         painting = super(PaintingForm, self).save(commit=False)
@@ -61,14 +55,4 @@ class PaintingForm(forms.ModelForm):
             painting.save()
 
         return painting
-    
-    def clean_image(self):
-        image = self.cleaned_data['image']
-        if image:
-            # Get the file extension
-            file_extension = image.name.split('.')[-1].lower()
-            # Validate that the file is an image
-            valid_extensions = ['jpg', 'jpeg', 'png', 'gif']
-            if file_extension not in valid_extensions:
-                raise forms.ValidationError("Only 'jpg', 'jpeg', 'png', 'gif' files accepted.")
-        return image
+
