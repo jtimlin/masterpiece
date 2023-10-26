@@ -18,7 +18,7 @@
         <div class="col-sm-6 col-md-4 col-lg-3 px-1 d-flex align-items-stretch">
             <div class="card card-detail mb-3 shadow-sm mx-auto mx-sm-2">
                 {% if "placeholder" in painting.image.url %}
-                <img src="#"
+                <img src="https://res.cloudinary.com/masterpiece23/image/upload/v1698348371/placeholder_tgv6s4.jpg"
                     class="card-img-top" alt="placeholder image">
                 {% else %}
                 <img src=" {{ painting.image.url }}" alt="painting image" class="card-img-top">
@@ -36,7 +36,7 @@
             </div>
         </div>
         {% empty %}
-        <div class="col-12">
+        <div class="col-12 text-center">
             <h3>You haven't uploaded any paintings yet.</h3>
         </div>
         {% endfor %}

@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.views import generic, View
 from .models import Painting, Comment
 from .forms import CommentForm, PaintingForm
+from cloudinary.exceptions import Error
 
 
 class PaintingList(generic.ListView):
@@ -88,12 +89,14 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     success_message = "%(calculated_field)s was created successfully"
 
     def form_valid(self, form):
-        """
-        This method is called when valid form data has been posted.
-        The signed-in user is set as the author of the painting.
-        """
         form.instance.author = self.request.user
-        return super().form_valid(form)
+        try:
+            # Attempt to save the form
+            return super().form_valid(form)
+        except Error as e:
+            # Handle the exception and provide a custom error message
+            form.add_error('image', 'Invalid image file. Please upload a valid image file.')
+            return self.form_invalid(form)
 
     def get_success_url(self):
         """
@@ -206,7 +209,7 @@ class DeletePainting(LoginRequiredMixin, UserPassesTestMixin,
     """
     model = Painting
     template_name = 'delete_painting.html'
-    success_message = "Painting deleted successfully"
+    success_message = "Painting deleted successfully."
     success_url = reverse_lazy('my_paintings')
 
     def test_func(self):
