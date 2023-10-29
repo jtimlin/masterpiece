@@ -21,6 +21,16 @@ class PaintingList(generic.ListView):
         return self.queryset[:3]
 
 
+class Gallery(generic.ListView):
+    """
+    This view is used to display a list of paintings at Gallery page.
+    """
+    model = Painting
+    queryset = Painting.objects.order_by('-created_on')
+    template_name = 'gallery.html'
+    paginate_by = 8
+
+
 class AboutUs(View):
     """
     This view displays about us page.

@@ -34,7 +34,7 @@
                 <a class="nav-link" href="{% url 'about_us' %}">About Us</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Gallery</a>
+                <a class="nav-link" href="{% url 'gallery' %}">Gallery</a>
               </li>
               {% if user.is_authenticated %}
               <li class="nav-item dropdown">
@@ -88,9 +88,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer sticky-bottom">
-        &copy; 2023 Masterpiece By: J. Timlin
-    </footer>
+    <footer class="sticky-bottom footer">&copy; 2023 Masterpiece By: J. Timlin</footer>
 
     <!-- Bootstrap JS (Optional) -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

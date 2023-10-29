@@ -1,13 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Masterpiece - My Paintings{% endblock %}
+{% block title %}Masterpiece - Gallery{% endblock %}
 {% block content %}
-
-{% if user.is_authenticated %}
 
 <div class="container">
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-center">My Uploaded Paintings</h1>
+        <div class="col-12 text-center">
+            <h1>Gallery</h1>
         </div>
     </div>
     <hr>
@@ -23,7 +21,7 @@
                 {% else %}
                 <img src=" {{ painting.image.url }}" alt="painting image" class="card-img-top">
                 {% endif %}
-                <div class="card-body pb-1">
+                <div class="card-body pb-1 text-center">
                     <h2 class="painting-title">{{ painting.title }}</h2>
                     <p>
                         <span><i class="fa-solid fa-paintbrush"></i></span>
@@ -37,7 +35,7 @@
         </div>
         {% empty %}
         <div class="col-12 text-center">
-            <h3>You haven't uploaded any paintings yet.</h3>
+            <h3>There is no uploaded paintings yet.</h3>
         </div>
         {% endfor %}
     </div>
@@ -74,7 +72,5 @@
         </div>
     </div>
 </div>
-
-{% endif %}
 
 {% endblock %}

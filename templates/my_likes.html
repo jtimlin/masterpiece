@@ -7,7 +7,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Paintings I Like</h1>
+            <h1 class="text-center">Paintings I Like</h1>
         </div>
     </div>
     <hr>
@@ -40,6 +40,38 @@
             <h3>You haven't liked any paintings yet.</h3>
         </div>
         {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            {% if is_paginated %}
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="justify-content-center mt-4">
+                            <span>
+                                {% if page_obj.has_previous %}
+                                <a class="btn btn-outline-dark btn-sm mb4 ml-1" href="?page=1">First</a>
+                                <a class="btn btn-outline-dark btn-sm mb4 ml-1"
+                                    href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                                {% endif %}
+                                <span>
+                                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                                </span>
+                                {% if page_obj.has_next %}
+                                <a class="btn btn-outline-dark btn-sm mb4 ml-1"
+                                    href="?page={{ page_obj.next_page_number }}">Next</a>
+                                <a class="btn btn-outline-dark btn-sm mb4 ml-1"
+                                    href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {% endif %}
+        </div>
     </div>
 </div>
 
