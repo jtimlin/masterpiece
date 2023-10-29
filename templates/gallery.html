@@ -13,13 +13,13 @@
     <!--  Paintings Cards -->
     <div class="row justify-content-center">
         {% for painting in painting_list %}
-        <div class="col-sm-6 col-md-4 col-lg-3 px-1 d-flex align-items-stretch">
+        <div class="col-sm-6 col-md-4 col-lg-3 px-1">
             <div class="card mb-3 mx-auto mx-sm-2">
                 {% if "placeholder" in painting.image.url %}
                 <img src="https://res.cloudinary.com/masterpiece23/image/upload/v1698348371/placeholder_tgv6s4.jpg"
                     class="card-img-top" alt="placeholder image">
                 {% else %}
-                <img src=" {{ painting.image.url }}" alt="painting image" class="card-img-top">
+                <img src="{{ painting.image.url }}" alt="painting image" class="card-img-top">
                 {% endif %}
                 <div class="card-body pb-1 text-center">
                     <h2 class="painting-title">{{ painting.title }}</h2>

@@ -24,7 +24,7 @@ class Painting(models.Model):
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    image = CloudinaryField('image', default='placeholder')
+    image = CloudinaryField('image', default='placeholder', transformation='f_auto')
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="paintings")
     category = models.ForeignKey(
