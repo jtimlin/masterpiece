@@ -21,6 +21,15 @@ class PaintingList(generic.ListView):
         return self.queryset[:3]
 
 
+class AboutUs(View):
+    """
+    This view displays about us page.
+    """
+
+    def get(self, request):
+        return render(request, 'about_us.html')
+
+
 class PaintingDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
