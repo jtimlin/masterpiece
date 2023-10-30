@@ -29,7 +29,7 @@ class PaintingForm(forms.ModelForm):
         super(PaintingForm, self).__init__(*args, **kwargs)
         self.fields['description'].widget = forms.Textarea(attrs={'rows': 3})
 
-        if self.instance.pk:  # Check if the form is in "edit" mode (instance has a primary key)
+        if self.instance.pk:  # Check if the form is in "edit" mode
             self.fields['image'].required = False
             self.fields['image'].widget.attrs.pop('required', None)
         else:
@@ -55,4 +55,3 @@ class PaintingForm(forms.ModelForm):
             painting.save()
 
         return painting
-

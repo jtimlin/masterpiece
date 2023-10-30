@@ -222,7 +222,7 @@ class UpdatePainting(LoginRequiredMixin, UserPassesTestMixin,
 
 
 class DeletePainting(LoginRequiredMixin, UserPassesTestMixin,
-                   generic.DeleteView):
+                     generic.DeleteView):
     """
     This view is used to allow logged in users to delete their own painting
     """
