@@ -109,6 +109,11 @@ body {
 .painting1 {
     background-size: cover;
     background-position: center;
+    transition: background-color 0.3s;
+}
+
+.painting1:hover {
+    background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 
