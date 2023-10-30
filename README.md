@@ -463,6 +463,12 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Hero 'Details' Button | Click   | Open Painting Details page               |           |
 | Paintings | Display | Showing three latest added paintings |           |
 
+## About Us Page
+| Element               | Action  | Expected Result                 | Pass/Fail |
+|-----------------------|---------|---------------------------------|-----------|
+| Join Us link | Click   | Open Sign Up page               |           |
+| Info text | Display | Showing information about Masterpiece |           |
+
 ## Gallery Page
 | Element     | Action                  | Expected Result                                                                         | Pass/Fail |
 |-------------|-------------------------|-----------------------------------------------------------------------------------------|-----------|
@@ -610,3 +616,95 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Logout button      | Click               | Redirect to the homepage                                       |           |
 | Logout button      | Click               | Success message confirming log out appears                     |           |
 | Logout button      | Click               | Success message fades after 3 seconds                         |           |
+
+### Bugs 
+
+#### Fixed Bugs
+
+## CSRF Verification Failed with Allauth
+- **Problem**: Allauth was not allowing login or signup and displayed a "CSRF verification failed. Request aborted." message.
+- **Solution**: The issue was related to a newer version of Allauth. The solution involved adding CSRF trusted origins to the settings.py file. [More details](https://stackoverflow.com/questions/70285834/forbidden-403-csrf-verification-failed-request-aborted-reason-given-for-fail)
+
+## Page Titles Not Displayed
+- **Problem**: Page titles were not being displayed correctly.
+- **Solution**: Adding a `{% block title %}` tag to the base.html file resolved the issue.
+
+## Error When Uploading a New Painting
+- **Problem**: When attempting to upload a new painting, an error message appeared: "django.urls.exceptions.NoReverseMatch: Reverse for 'painting_detail' with arguments '('',)' not found."
+- **Issue**: The Add Painting form did not automatically generate a slug for the painting, causing a failure to load the home page.
+- **Solution**: The issue was addressed by overriding the save model method and adding the slugify field. [More details](https://stackoverflow.com/questions/70601191/how-to-auto-populate-slug-field-in-django-forms)
+
+## Update Painting Form Doesn't Show Image
+- **Problem**: The Update Painting form did not display the actual painting image.
+- **Issue**: A function that checked if an uploaded file was an image inadvertently cleared the current image when updating an existing image.
+- **Solution**: To make it work, file validation was temporarily removed. The issue was further addressed by implementing Cloudinary's file validation to display error messages properly.
+
+## Large Image Sizes
+- **Problem**: Image sizes were too large.
+- **Issue**: Attempting to automate image optimization with Cloudinary resulted in image sizes that were still too big.
+- **Solution**: It was found that Cloudinary's automated optimization requires a paid service. The issue was addressed by exploring image optimization alternatives, such as using Django's Pillow library.
+
+## Error on Upload Image Page
+- **Problem**: The Upload Image page displayed an error message stating, "Invalid image file. Please upload a valid image file," even for valid image formats like jpg or png.
+- **Issue**: This issue arose from a previous attempt to use Cloudinary's image optimization in the models and not properly migrating after changes.
+- **Solution**: The issue was resolved by performing the necessary migrations.
+
+#### Unfixed bugs:
+
+- #### Not there yet
+     - **Bug**: Here will be something.
+
+
+## Security Features and Defensive Design
+
+### User Authentication
+
+- Django's LoginRequiredMixin is employed to ensure that any attempts to access secure pages by non-authenticated users are redirected to the login page.
+- Django's UserPassesTestMixin is utilized to restrict access based on specific permissions, such as allowing users to edit or delete only their own paintings and comments. If the user does not pass the test, they will be presented with an HTTP 403 Forbidden error.
+
+### Form Validation
+
+When incorrect or empty data is entered into a form, submitting the form will not be possible, and a warning message will be displayed to the user, indicating which field raised the error. This ensures that users are informed about the issues in their input and prompts them to correct the errors before submitting the form.
+
+### Database Security
+
+The database URL and secret key are stored in the env.py file to prevent any unauthorized connections to the database. This setup was implemented prior to the initial push to GitHub, ensuring sensitive information remains secure.
+
+Furthermore, Cross-Site Request Forgery (CSRF) tokens have been incorporated into all forms across the site. This additional security measure helps protect against CSRF attacks, enhancing the overall security of the application.
+
+### Custom error pages
+
+Custom Error Pages have been implemented to offer users more information about the encountered errors and to guide them back to the site with the help of navigational buttons.
+
+400 Bad Request: Masterpiece is unable to process this request.
+
+403 Forbidden: It appears that you are attempting to access restricted content. Please log out and sign in with the appropriate account.
+
+404 Not Found: The page you are searching for does not exist.
+
+500 Internal Server Error: Masterpiece is presently unable to handle this request.
+
+## Features
+
+### Header
+
+![header logged out](#)
+
+**Logo**
+
+- A personalized logo was crafted with inspiration from [this](https://codepen.io/maheshambure21/pen/MWWgyyG) webpage.
+- This logo is situated in the top left corner of the navigation bar, providing a distinct brand identity for the site. Moreover, the logo is linked to the home page, enabling seamless navigation for the users back to the main page with just a click.,
+
+**Navigation Bar**
+
+- The website features a consistent navigation bar at the top of every page, containing links to various other pages.
+- The "My Account" link appears as a drop-down menu for logged-in users. "Join Us" and "Login." is visible for non-logged-in users.
+- Once a user successfully logs in, the "My Account" drop-down menu dynamically changes to show the user's name along with logout button.
+
+### Footer
+
+
+
+### Home Page
+
+**Hero Section**
