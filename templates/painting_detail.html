@@ -10,7 +10,7 @@
     <img src="https://res.cloudinary.com/masterpiece23/image/upload/v1698348371/placeholder_tgv6s4.jpg"
         class="img-fluid rounded painting-detail-img" alt="placeholder image">
     {% else %}
-    <img src="{{ painting.image.url }}" alt="Painting image" class="img-fluid rounded painting-detail-img">
+    <img src="{{ painting.image.url }}" alt="{{ painting.title }}" class="img-fluid rounded painting-detail-img">
     {% endif %}
 
     <!-- Painting Details and Like Button -->
