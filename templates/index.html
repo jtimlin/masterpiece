@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!-- Index Paintings  ( background image style didnt work when it was in style.css file )) -->
+        <!-- Index Paintings - Background image styles don't work when placed in a separate .css file due to the presence of Django template tags in the styles. -->
         {% for painting in painting_list %}
         <div class="col container-swiper painting1" style="background-image: url('{{ painting.image.url }}'); background-size: cover; background-position: center;">
             <div class="painting-info">

@@ -123,7 +123,10 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
             return super().form_valid(form)
         except Error as e:
             # Handle the exception and provide a custom error message
-            form.add_error('image', 'Invalid image file. Please upload a valid image file.')
+            form.add_error('image', (
+                'Invalid image file. '
+                'Please upload a valid image file.'
+            ))
             return self.form_invalid(form)
 
     def get_success_url(self):
@@ -159,7 +162,8 @@ class LikePainting(LoginRequiredMixin, View):
         painting = get_object_or_404(Painting, slug=slug)
         if painting.likes.filter(id=request.user.id).exists():
             painting.likes.remove(request.user)
-            messages.success(self.request, 'Painting removed from your favorites.')
+            messages.success(self.request, 'Painting removed from your '
+                                           'favorites.')
         else:
             painting.likes.add(request.user)
             messages.success(self.request, 'Painting added to my favorites.')
@@ -183,7 +187,7 @@ class MyPaintings(LoginRequiredMixin, generic.ListView):
 
 
 class UpdatePainting(LoginRequiredMixin, UserPassesTestMixin,
-                   SuccessMessageMixin, generic.UpdateView):
+                     SuccessMessageMixin, generic.UpdateView):
     """
     This view is used to allow logged in users to edit their own paintings
     """
@@ -227,7 +231,6 @@ class UpdatePainting(LoginRequiredMixin, UserPassesTestMixin,
             cleaned_data,
             calculated_field=self.object.title,
         )
-
 
 
 class DeletePainting(LoginRequiredMixin, UserPassesTestMixin,
