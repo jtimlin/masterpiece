@@ -36,7 +36,7 @@ ALLOWED_HOSTS = [
     '8000-jindah-masterpiece-o0qms0hmslf.ws-eu105.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = [
-    'masterpiece23-cbdad7ea4f9e.herokuapp.com',
+    'https://masterpiece23-cbdad7ea4f9e.herokuapp.com',
     'https://8000-jindah-masterpiece-o0qms0hmslf.ws-eu105.gitpod.io']
 
 # Application definition

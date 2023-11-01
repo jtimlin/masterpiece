@@ -8,9 +8,9 @@
 <div class="container-fluid">
   <div class="row justify-content-md-center">
     <div class="col-lg-6 mb-5 mb-lg-0">
-      <div class="card">
+      <div class="card card-green-border">
         <div class="card-body py-5 px-md-5">
-          <h1>{% trans "Sign Up" %}</h1>
+          <h1 class="painting-title">{% trans "Sign Up" %}</h1>
           <hr>
           <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
@@ -20,7 +20,7 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
-            <button class="btn btn-outline-dark py-2 px-4" type="submit">{% trans "Register" %}</button>
+            <button class="btn btn-outline-success py-2 px-4" type="submit">{% trans "Register" %}</button>
           </form>
         </div>
       </div>

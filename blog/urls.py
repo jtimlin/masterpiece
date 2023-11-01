@@ -8,6 +8,7 @@ urlpatterns = [
     path('addpainting/', views.AddPainting.as_view(), name='add_painting'),
     path('aboutus/', views.AboutUs.as_view(), name='about_us'),
     path('gallery/', views.Gallery.as_view(), name='gallery'),
+    path('myaccount/', views.MyAccount.as_view(), name='myaccount'),
     path('<slug:slug>/update/', views.UpdatePainting.as_view(), name='update_painting'),
     path('<slug:slug>/delete/', views.DeletePainting.as_view(), name='delete_painting'),
     path('comments/<int:pk>/update/', views.UpdateComment.as_view(), name='update_comment'),

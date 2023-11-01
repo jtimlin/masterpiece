@@ -40,6 +40,15 @@ class AboutUs(View):
         return render(request, 'about_us.html')
 
 
+class MyAccount(View):
+    """
+    This view displays Account page.
+    """
+
+    def get(self, request):
+        return render(request, 'account.html')
+
+
 class PaintingDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
