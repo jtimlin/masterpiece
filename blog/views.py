@@ -8,6 +8,8 @@ from django.views import generic, View
 from .models import Painting, Comment
 from .forms import CommentForm, PaintingForm
 from cloudinary.exceptions import Error
+from PIL import Image
+from io import BytesIO
 
 
 class PaintingList(generic.ListView):
@@ -118,17 +120,28 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+
+        # Get the uploaded image from the form
+        image = form.cleaned_data['image']
+        
         try:
-            # Attempt to save the form
-            return super().form_valid(form)
-        except Error as e:
-            # Handle the exception and provide a custom error message
-            form.add_error('image', (
-                'Invalid image file. '
-                'Please upload a valid image file.'
-            ))
+            # Optimize the image using Pillow
+            img = Image.open(image)
+            img = img.convert('RGB')
+            img_io = BytesIO()
+            img.save(img_io, 'JPEG', quality=90)  # Adjust quality as needed
+            img_io.seek(0)
+
+            # Set the image field in the form to the optimized image
+            form.cleaned_data['image'] = img_io
+        except Exception as e:
+            # Handle any exceptions related to image processing
+            form.add_error('image', 'Error processing the image. Please upload a valid image file.')
             return self.form_invalid(form)
 
+        # Continue with the form validation and saving
+        return super().form_valid(form)
+    
     def get_success_url(self):
         """
         Redirect to the detail page of the newly added painting.
@@ -145,6 +158,7 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
             cleaned_data,
             calculated_field=self.object.title,
         )
+
 
 
 class LikePainting(LoginRequiredMixin, View):

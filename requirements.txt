@@ -10,7 +10,7 @@ django-image-optimizer==1.0.3
 django-summernote==0.8.20.0
 gunicorn==21.2.0
 oauthlib==3.2.2
-Pillow==10.1.0
+Pillow==9.2.0
 psycopg2==2.9.9
 PyJWT==2.8.0
 python-resize-image==1.1.20

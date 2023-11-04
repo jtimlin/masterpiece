@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'blog',
+    'Pillow',
 ]
 
 IMAGE_OPTIMIZATOR = {
