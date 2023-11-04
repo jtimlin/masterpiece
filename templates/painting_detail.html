@@ -51,6 +51,10 @@
             {% endif %}</h2>
             <p>Artist: {{ painting.author }}</p>
             <p>Description:<br>{{ painting.description }}</p>
+
+            {% if not user.is_authenticated %}
+            <p>Want to share your thoughts? <a href="{% url 'account_signup' %}">Join Us!</a> or <a href="{% url 'account_login' %}?next={{ request.path }}">Login!</a></p>
+            {% endif %}
         </div>
 
 
