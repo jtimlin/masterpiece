@@ -37,17 +37,17 @@ The live link can be found here - [Masterpiece](https://masterpiece23-cbdad7ea4f
     + [Database Security](#database-security)
     + [Custom error pages](#custom-error-pages)
   * [Features](#features)
-    + [Header](#features--header)
-    + [Footer](#features--footer)
-    + [Home Page](#features--home-page)
-    + [Browse Gallery](#features--browse-gallery)
-    + [Painting Detail Page](#features--painting-detail-page)
-    + [Upload Painting Form](#features--upload-painting-form)
-    + [Update Painting Form](#features--update-painting-form)
-    + [Delete Painting](#features--delete-painting)
-    + [My Paintings Page](#features--my-paintings-page)
-    + [My Favorites Page](#features--my-favorites-page)
-    + [Error Pages](#features--error-pages)
+    + [Header](#header)
+    + [Footer](#footer)
+    + [Home Page](#home-page)
+    + [Browse Gallery](#browse-gallery)
+    + [Painting Detail Page](#painting-detail-page)
+    + [Upload Painting Form](#upload-painting-form)
+    + [Update Painting Form](#update-painting-form)
+    + [Delete Painting](#delete-painting)
+    + [My Uploaded Paintings Page](#my-uploaded-paintings-page)
+    + [My Favorites Page](#my-favorites-page)
+    + [Error Pages](#error-pages)
   * [Deployment - Heroku](#deployment---heroku)
     + [Create the Heroku App](#create-the-heroku-app)
     + [Attach the Postgres database](#attach-the-postgres-database)
@@ -456,7 +456,7 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Login Link          | Click      | Open Login Page                 |      Pass     |
 | Join Us! Link          | Click      | Open Sign Up Page                 |     Pass      |
 
-## Home Page
+## Home
 | Element               | Action  | Expected Result                 | Pass/Fail |
 |-----------------------|---------|---------------------------------|-----------|
 | Hero 'Details' Button | Click   | Open Painting Details page               |     Pass      |
@@ -476,7 +476,7 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Painting Card | Pagination              | Site will paginate 8 painting cards to a page                                       |     Pass      |
 | Painting Card | Order                   | Paintings are sorted by newest to oldest                                           |      Pass     |
 
-## Painting Detail Page
+## Painting Details Page
 | Element                        | Action              | Expected Result                                                                                                         | Pass/Fail |
 |--------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------|-----------|
 | Painting Content               | Display             | Display correct painting image, title, author, description, and comments                                                |     Pass      |
@@ -556,7 +556,7 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Delete Button | Click  | Painting is deleted and removed from user paintings page                                                                   |      Pass     |
 | Delete Button | Click  | Success message appears telling the user that the painting has been successfully deleted                                 |     Pass      |
 | Delete Button | Click  | User is redirected back to the Gallery page                                                                         |      Pass     |
-| Cancel Button | Click  | Redirects to the current painting page    
+| Cancel Button | Click  | Redirects to the current painting page      |      Pass     |
 
 ## My Paintings Page
 
@@ -569,7 +569,7 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Painting Card   | Pagination           | The site will paginate 8 painting cards to a page   |     Pass      |
 | Painting Card   | Order                | Paintings are sorted by the newest to the oldest    |      Pass     |
 
-## My Favorites Page
+## My Favorite Page
 
 | Element       | Action | Expected Result                                                                                                        | Pass/Fail |
 |---------------|--------|------------------------------------------------------------------------------------------------------------------------|-----------|
@@ -615,39 +615,39 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Logout button      | Click               | Success message confirming log out appears                     |      Pass     |
 | Logout button      | Click               | Success message fades after 3 seconds                         |     Pass      |
 
-### Bugs 
+## Bugs 
 
-#### Fixed Bugs
+### Fixed Bugs
 
-## CSRF Verification Failed with Allauth
+#### CSRF Verification Failed with Allauth
 - **Problem**: Allauth was not allowing login or signup and displayed a "CSRF verification failed. Request aborted." message.
 - **Solution**: The issue was related to a newer version of Allauth. The solution involved adding CSRF trusted origins to the settings.py file. [More details](https://stackoverflow.com/questions/70285834/forbidden-403-csrf-verification-failed-request-aborted-reason-given-for-fail)
 
-## Page Titles Not Displayed
+#### Page Titles Not Displayed
 - **Problem**: Page titles were not being displayed correctly.
 - **Solution**: Adding a `{% block title %}` tag to the base.html file resolved the issue.
 
-## Error When Uploading a New Painting
+#### Error When Uploading a New Painting
 - **Problem**: When attempting to upload a new painting, an error message appeared: "django.urls.exceptions.NoReverseMatch: Reverse for 'painting_detail' with arguments '('',)' not found."
 - **Issue**: The Add Painting form did not automatically generate a slug for the painting, causing a failure to load the home page.
 - **Solution**: The issue was addressed by overriding the save model method and adding the slugify field. [More details](https://stackoverflow.com/questions/70601191/how-to-auto-populate-slug-field-in-django-forms)
 
-## Update Painting Form Doesn't Show Image
+#### Update Painting Form Doesn't Show Image
 - **Problem**: The Update Painting form did not display the actual painting image.
 - **Issue**: A function that checked if an uploaded file was an image inadvertently cleared the current image when updating an existing image.
 - **Solution**: To make it work, file validation was temporarily removed. The issue was further addressed by implementing Cloudinary's file validation to display error messages properly.
 
-## Large Image Sizes
+#### Large Image Sizes
 - **Problem**: Image sizes were too large.
 - **Issue**: Attempting to automate image optimization with Cloudinary resulted in image sizes that were still too big.
 - **Solution**: It was found that Cloudinary's automated optimization requires a paid service. The issue was addressed by exploring image optimization alternatives, such as using Django's Pillow library.
 
-## Error on Upload Image Page
+#### Error on Upload Image Page
 - **Problem**: The Upload Image page displayed an error message stating, "Invalid image file. Please upload a valid image file," even for valid image formats like jpg or png.
 - **Issue**: This issue arose from a previous attempt to use Cloudinary's image optimization in the models and not properly migrating after changes.
 - **Solution**: The issue was resolved by performing the necessary migrations.
 
-#### Unfixed bugs:
+### Unfixed bugs:
 
 - #### Not there yet
      - **Bug**: Here will be something.
@@ -784,7 +784,7 @@ Custom Error Pages have been implemented to offer users more information about t
 - Clicking the delete button prompts the user with a confirmation dialog, giving them the choice to proceed with deleting the painting or to cancel the action.
 - After successfully confirming the deletion, the user is informed of the success with a prompt message indicating that the painting has been successfully deleted. This feedback ensures the user is aware of the outcome of their action and maintains transparency in the process.
 
-### My Paintings Page
+### My Uploaded Paintings Page
 
 ![my paintings](https://res.cloudinary.com/masterpiece23/image/upload/v1699111713/features/my_paintings_qckjua.png)
 
@@ -927,6 +927,7 @@ To clone this repository follow the below steps:
 - There are no static images on the website.
 - The majority of the uploaded paintings are painted by my brother, Olli Timlin.
 - A couple of them are from Pixabay.com, and the artists are credited
+- Base template were created using vscode. Photon template from [Colorlib](https://preview.colorlib.com/theme/photon/index.html) was used for inspiration.
 
 ## Special Thanks
 
@@ -941,3 +942,6 @@ To clone this repository follow the below steps:
 [Martina Terlevic](https://www.linkedin.com/in/martinaterlevic/), as my mentor.
 
 [Kai Langen](https://www.linkedin.com/in/kai-langen/), my fellow student with the help on slack and standups.
+
+[Kay Welfare](https://www.linkedin.com/in/kay-welfare-developer/), As awesome Student Cohort Facilitator.
+
