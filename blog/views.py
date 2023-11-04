@@ -121,16 +121,19 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
 
-        # Get the uploaded image from the form
         image = form.cleaned_data['image']
         
         try:
-            # Optimize the image using Pillow
+            # Open and optimize the image using Pillow
             img = Image.open(image)
             img = img.convert('RGB')
+
+            # Check if the image is larger than the specified dimensions
+            if img.width > 1280 or img.height > 1280:
+                img = img.resize((1280, 1280), Image.ANTIALIAS)  # Resize larger images to 1280x1280 pixels
+
             img_io = BytesIO()
-            img.save(img_io, 'JPEG', quality=90)  # Adjust quality as needed
-            img_io.seek(0)
+            img.save(img_io, 'JPEG', quality=90)
 
             # Set the image field in the form to the optimized image
             form.cleaned_data['image'] = img_io
@@ -139,7 +142,6 @@ class AddPainting(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
             form.add_error('image', 'Error processing the image. Please upload a valid image file.')
             return self.form_invalid(form)
 
-        # Continue with the form validation and saving
         return super().form_valid(form)
     
     def get_success_url(self):
