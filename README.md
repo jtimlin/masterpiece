@@ -194,85 +194,85 @@ All HTML pages were run through the [W3C HTML Validator](https://validator.w3.or
 <details>
 <summary>Home Page</summary>
 
-![Home Page](#)
+![Home Page](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/home_page_tex7g3.png)
 </details>
 
 <details>
 <summary>About Us</summary>
 
-![About Us](#)
+![About Us](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/aboutus_skr3zd.png)
 </details>
 
 <details>
 <summary>Gallery</summary>
 
-![Gallery](#)
+![Gallery](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/gallery_ki11n1.png)
 </details>
 
 <details>
 <summary>My Paintings</summary>
 
-![My Paintings](#)
+![My Paintings](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/my_paintings_os7zrk.png)
 </details>
 
 <details>
 <summary>Upload Painting</summary>
 
-![Upload Painting](#)
+![Upload Painting](https://res.cloudinary.com/masterpiece23/image/upload/v1699104719/HTML%20checker/upload_painting_aezosm.png)
 </details>
 
 <details>
 <summary>My Favorites</summary>
 
-![My Favorites](#)
+![My Favorites](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/my_favorites_ljzla7.png)
 </details>
 
 <details>
 <summary>Logout</summary>
 
-![Logout](#)
+![Logout](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/logout_jje55e.png)
 </details>
 
 <details>
 <summary>Sign Up</summary>
 
-![Sign Up](#)
+![Sign Up](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/signup_lh3jwo.png)
 </details>
 
 <details>
 <summary>Login</summary>
 
-![Login](#)
+![Login](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/login_czv0ia.png)
 </details>
 
 <details>
 <summary>Painting Details</summary>
 
-![Painting Details](#)
+![Painting Details](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/painting_detail_n7dfct.png)
 </details>
 
 <details>
-<summary>Painting Update (Another test / deleted)</summary>
+<summary>Painting Update</summary>
 
-![Painting Update (Another test / deleted)](#)
+![Painting Update](https://res.cloudinary.com/masterpiece23/image/upload/v1699104718/HTML%20checker/update_painting_i2jy5j.png)
 </details>
 
 <details>
-<summary>Painting Delete (Another test / deleted)</summary>
+<summary>Painting Delete</summary>
 
-![Painting Delete (Another test / deleted)](#)
+![Painting Delete](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/delete_painting_hfctms.png)
 </details>
 
 <details>
 <summary>Comment Update</summary>
 
-![Comment Update](#)
+![Comment Update](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/comment_update_cqcn24.png)
 </details>
 
 <details>
 <summary>Comment Delete</summary>
 
-![Comment Delete](#)
+![Comment Delete](https://res.cloudinary.com/masterpiece23/image/upload/v1699104717/HTML%20checker/comment_delete_hps8fy.png)
 </details>
 
 ### CSS Validation
@@ -282,7 +282,7 @@ No errors were found when passing my CSS file through the official [W3C CSS Vali
 <details>
 <summary>Result</summary>
 
-![CSS validation results](#)
+![CSS validation results](https://res.cloudinary.com/masterpiece23/image/upload/v1699105157/CSS_validator_tpt27j.png)
 </details>
 
 ### JavaScript Validation
@@ -292,7 +292,7 @@ No errors were found when passing the javascript snippet through [Jshint](https:
 <details>
 <summary>Result</summary>
 
-![JavaScript validation results](#)
+![JavaScript validation results](https://res.cloudinary.com/masterpiece23/image/upload/v1699105157/JSHINT_validator_dxwivw.png)
 </details>
 
 ### Python Linter Validation
@@ -302,37 +302,37 @@ All Python files I worked with were run through the [CI Python Linter](https://p
 <details>
 <summary>admin.py</summary>
 
-![Result](#)
+![Result](https://res.cloudinary.com/masterpiece23/image/upload/v1699105150/Pyhton%20Linter/admin.py_tlmi8p.png)
 </details>
 
 <details>
 <summary>froms.py</summary>
 
-![Result](#)
+![Result](https://res.cloudinary.com/masterpiece23/image/upload/v1699105151/Pyhton%20Linter/forms.py_pyi77h.png)
 </details>
 
 <details>
 <summary>models.py</summary>
 
-![Result](#)
+![Result](https://res.cloudinary.com/masterpiece23/image/upload/v1699105152/Pyhton%20Linter/models.py_nl5q1r.png)
 </details>
 
 <details>
 <summary>blog/urls.py</summary>
 
-![Result](#)
+![Result](https://res.cloudinary.com/masterpiece23/image/upload/v1699105155/Pyhton%20Linter/urls.py_egrmnr.png)
 </details>
 
 <details>
 <summary>views.py</summary>
 
-![Result](#)
+![Result](https://res.cloudinary.com/masterpiece23/image/upload/v1699105154/Pyhton%20Linter/views.py_vgig7l.png)
 </details>
 
 <details>
 <summary>settings.py</summary>
 
-![CSS validation results](#)
+![CSS validation results](https://res.cloudinary.com/masterpiece23/image/upload/v1699105153/Pyhton%20Linter/settings.py_gju4pf.png)
 
 The lines exceeding the maximal length have been solved by adding the # noqa tag.
 </details>
@@ -340,7 +340,7 @@ The lines exceeding the maximal length have been solved by adding the # noqa tag
 <details>
 <summary>masterpiece/urls.py</summary>
 
-![CSS validation results](#)
+![CSS validation results](https://res.cloudinary.com/masterpiece23/image/upload/v1699105151/Pyhton%20Linter/masterpiece.urls.py_yfkgld.png)
 </details>
 
 
@@ -450,172 +450,171 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 | Element               | Action     | Expected Result                    | Pass/Fail |
 |-----------------------|------------|------------------------------------|-----------|
 | **NavBar**            |            |                                    |           |
-| Site Name (logo area) | Click      | Redirect to home                   |           |
-| Home Link             | Click      | Redirect to home                   |           |
-| About Us Link        | Click      | Open About Us page                |           |
-| Gallery Link          | Click      | Open Gallery Page                 |           |
-| Login Link          | Click      | Open Login Page                 |           |
-| Join Us! Link          | Click      | Open Sign Up Page                 |           |
+| Site Name (logo area) | Click      | Redirect to home                   |     Pass      |
+| Home Link             | Click      | Redirect to home                   |      Pass     |
+| About Us Link        | Click      | Open About Us page                |     Pass      |
+| Gallery Link          | Click      | Open Gallery Page                 |     Pass      |
+| Login Link          | Click      | Open Login Page                 |      Pass     |
+| Join Us! Link          | Click      | Open Sign Up Page                 |     Pass      |
 
 ## Home Page
 | Element               | Action  | Expected Result                 | Pass/Fail |
 |-----------------------|---------|---------------------------------|-----------|
-| Hero 'Details' Button | Click   | Open Painting Details page               |           |
-| Paintings | Display | Showing three latest added paintings |           |
+| Hero 'Details' Button | Click   | Open Painting Details page               |     Pass      |
+| Paintings | Display | Showing three latest added paintings |     Pass      |
 
 ## About Us Page
 | Element               | Action  | Expected Result                 | Pass/Fail |
 |-----------------------|---------|---------------------------------|-----------|
-| Join Us link | Click   | Open Sign Up page               |           |
-| Info text | Display | Showing information about Masterpiece |           |
+| Join Us link | Click   | Open Sign Up page               |      Pass     |
+| Info text | Display | Showing information about Masterpiece |     Pass      |
 
 ## Gallery Page
 | Element     | Action                  | Expected Result                                                                         | Pass/Fail |
 |-------------|-------------------------|-----------------------------------------------------------------------------------------|-----------|
-| Painting Card | Display correct content | Display correct image, painting title and description                                |           |
-| Painting Card | Click                   | Clicking anywhere inside the painting card takes you to the correct painting's detail page. |           |
-| Painting Card | Pagination              | Site will paginate 8 painting cards to a page                                       |           |
-| Painting Card | Order                   | Paintings are sorted by newest to oldest                                           |           |
-| Painting Card | Hover                   | Add gold border                                                                         |           |
+| Painting Card | Display correct content | Display correct image, painting title and artist                                |     Pass      |
+| Painting Card | Click                   | Clicking anywhere inside the painting card takes you to the correct painting's detail page. |     Pass      |
+| Painting Card | Pagination              | Site will paginate 8 painting cards to a page                                       |     Pass      |
+| Painting Card | Order                   | Paintings are sorted by newest to oldest                                           |      Pass     |
 
 ## Painting Detail Page
 | Element                        | Action              | Expected Result                                                                                                         | Pass/Fail |
 |--------------------------------|---------------------|-------------------------------------------------------------------------------------------------------------------------|-----------|
-| Painting Content               | Display             | Display correct painting image, title, author, description, and comments                                                |           |
-| Like button (Outline)          | Click               | Clicking the outlined heart changes it to a solid heart                                                                 |           |
-| Like button (Outline)          | Click               | Painting is added to the user's My Likes page                                                                          |           |
-| Like button (Outline)          | Click               | Success message appears informing the user that the painting has been added to their liked paintings                  |           |
-| Like button (Outline)          | Click               | Success message fades after 3 seconds                                                                                   |           |
-| Like button (Solid)            | Click               | Clicking the solid heart changes it back to an outlined heart                                                           |           |
-| Like button (Solid)            | Click               | Painting is removed from the user's My Likes page                                                                       |           |
-| Like button (Solid)            | Click               | Success message appears informing the user that the painting has been removed from their liked paintings              |           |
-| Like button (Solid)            | Click               | Success message fades after 3 seconds                                                                                   |           |
-| Like button                    | Display             | Button only clickable if user in session                                                                                  |           |
-| Update painting button         | Click               | Opens Update Painting Form                                                                                                |           |
-| Update painting button         | Display             | Button only visible if user is the author                                                                               |           |
-| Delete painting button         | Click               | Opens Delete Painting confirmation page                                                                                   |           |
-| Delete painting button         | Display             | Button only visible if user is the author                                                                               |           |
-| User Comments                  | Display             | Displays correct name, date, time, and comment body                                                                    |           |
-| User Comments                  | Display             | Comments are ordered oldest to newest                                                                                   |           |
-| Update comment button          | Display             | Button only visible if user is the comment author                                                                       |           |
-| Update comment button          | Click               | Opens Update Comment Form                                                                                               |           |
-| Update comment form            | Leave empty         | On submit: form won't submit                                                                                            |           |
-| Update comment form            | Leave empty         | Error message displays                                                                                                  |           |
-| Update comment submit button   | Click               | Form submit - page updates and comment displays in comments section with correct content                                |           |
-| Update comment submit button   | Click               | Success message appears informing the user that the comment has been updated                                            |           |
-| Update comment submit button   | Click               | Success message fades after 3 seconds                                                                                   |           |
-| Update comment form            | Access              | If a user tries to edit another user's comment (by changing the URL), they receive a 403 error.                        |           |
-| Update comment form            | Access              | If a user tries to edit a comment (by changing the URL) without being signed in, they are redirected to the login page |           |
-| Cancel update comment button   | Click               | Redirects the user back to the painting detail page                                                                   |           |
-| Delete comment button          | Display             | Button only visible if the user is the comment author                                                                   |           |
-| Delete comment button          | Click               | Opens delete comment confirmation page                                                                                  |           |
-| Confirm delete button          | Click               | Comment is removed from the comment section                                                                             |           |
-| Confirm delete button          | Click               | Success message appears informing the user that the comment has been deleted                                            |           |
-| Confirm delete button          | Click               | Success message fades after 3 seconds                                                                                   |           |
-| Confirm delete button          | Click               | Redirects the user back to the painting detail page                                                                   |           |
-| Cancel delete button           | Click               | Redirects the user back to the painting detail page                                                                   |           |
-| Delete comment                 | Access              | If a user tries to delete another user's comment (by changing the URL), they receive a custom 403 error.               |           |
-| Delete comment                 | Access              | If a user tries to delete a comment (by changing the URL) without being signed in, they are redirected to the login page |           |
-| Add comment Form               | Display             | Form only visible if user in session                                                                                    |           |
-| Add comment Form submit button | Leave empty         | On submit: form won't submit                                                                                            |           |
-| Add comment Form submit button | Leave empty         | Error message displays                                                                                                  |           |
-| Add comment Form submit button | Filled in           | Form submit - page updates and comment displays in the comments section with correct content                            |           |
-| Add comment Form submit button | Click               | Success message appears informing the user that the comment has been added                                              |           |
-| Add comment Form submit button | Click               | Success message fades after 3 seconds                                                                                   |           |
+| Painting Content               | Display             | Display correct painting image, title, author, description, and comments                                                |     Pass      |
+| Like button (Outline)          | Click               | Clicking the outlined heart changes it to a solid heart                                                                 |     Pass      |
+| Like button (Outline)          | Click               | Painting is added to the user's My Favorites page                                                                          |     Pass      |
+| Like button (Outline)          | Click               | Success message appears informing the user that the painting has been added to their liked paintings                  |      Pass     |
+| Like button (Outline)          | Click               | Success message fades after 3 seconds                                                                                   |     Pass      |
+| Like button (Solid)            | Click               | Clicking the solid heart changes it back to an outlined heart                                                           |      Pass     |
+| Like button (Solid)            | Click               | Painting is removed from the user's My Favorites page                                                                       |     Pass      |
+| Like button (Solid)            | Click               | Success message appears informing the user that the painting has been removed from their liked paintings              |      Pass     |
+| Like button (Solid)            | Click               | Success message fades after 3 seconds                                                                                   |     Pass      |
+| Like button                    | Display             | Button only clickable if user in session                                                                                  |    Pass       |
+| Update painting button         | Click               | Opens Update Painting Form                                                                                                |     Pass      |
+| Update painting button         | Display             | Button only visible if user is the author                                                                               |     Pass      |
+| Delete painting button         | Click               | Opens Delete Painting confirmation page                                                                                   |     Pass      |
+| Delete painting button         | Display             | Button only visible if user is the author                                                                               |     Pass      |
+| User Comments                  | Display             | Displays correct name, date, time, and comment body                                                                    |     Pass      |
+| User Comments                  | Display             | Comments are ordered oldest to newest                                                                                   |     Pass      |
+| Update comment button          | Display             | Button only visible if user is the comment author                                                                       |     Pass      |
+| Update comment button          | Click               | Opens Update Comment Form                                                                                               |    Pass       |
+| Update comment form            | Leave empty         | On submit: form won't submit                                                                                            |     Pass      |
+| Update comment form            | Leave empty         | Error message displays                                                                                                  |      Pass     |
+| Update comment submit button   | Click               | Form submit - page updates and comment displays in comments section with correct content                                |     Pass      |
+| Update comment submit button   | Click               | Success message appears informing the user that the comment has been updated                                            |     Pass      |
+| Update comment submit button   | Click               | Success message fades after 3 seconds                                                                                   |     Pass      |
+| Update comment form            | Access              | If a user tries to edit another user's comment (by changing the URL), they receive a 403 error.                        |     Pass      |
+| Update comment form            | Access              | If a user tries to edit a comment (by changing the URL) without being signed in, they are redirected to the login page |     Pass      |
+| Cancel update comment button   | Click               | Redirects the user back to the painting detail page                                                                   |      Pass     |
+| Delete comment button          | Display             | Button only visible if the user is the comment author                                                                   |     Pass      |
+| Delete comment button          | Click               | Opens delete comment confirmation page                                                                                  |     Pass      |
+| Confirm delete button          | Click               | Comment is removed from the comment section                                                                             |     Pass      |
+| Confirm delete button          | Click               | Success message appears informing the user that the comment has been deleted                                            |     Pass      |
+| Confirm delete button          | Click               | Success message fades after 3 seconds                                                                                   |     Pass      |
+| Confirm delete button          | Click               | Redirects the user back to the painting detail page                                                                   |     Pass      |
+| Cancel delete button           | Click               | Redirects the user back to the painting detail page                                                                   |      Pass     |
+| Delete comment                 | Access              | If a user tries to delete another user's comment (by changing the URL), they receive a custom 403 error.               |     Pass      |
+| Delete comment                 | Access              | If a user tries to delete a comment (by changing the URL) without being signed in, they are redirected to the login page |     Pass      |
+| Add comment Form               | Display             | Form only visible if user in session                                                                                    |     Pass      |
+| Add comment Form submit button | Leave empty         | On submit: form won't submit                                                                                            |     Pass      |
+| Add comment Form submit button | Leave empty         | Error message displays                                                                                                  |     Pass      |
+| Add comment Form submit button | Filled in           | Form submit - page updates and comment displays in the comments section with correct content                            |     Pass      |
+| Add comment Form submit button | Click               | Success message appears informing the user that the comment has been added                                              |     Pass      |
+| Add comment Form submit button | Click               | Success message fades after 3 seconds                                                                                   |     Pass      |
 
 ## Add Painting Page
 | Element                       | Action                | Expected Result                                                                                                     | Pass/Fail |
 |-------------------------------|-----------------------|---------------------------------------------------------------------------------------------------------------------|-----------|
-| Add Painting                   | Access                | If a user tries to add a painting (by changing the URL) without being signed in, they are redirected to the login page |           |
-| Form Text Input (if required) | Leave blank           | On Submit: Warning appears, form won't submit                                                                       |           |
-| Painting Title                  | Duplicate Entry       | On Submit: Warning appears, form won't submit                                                                       |           |
-| Form image select button      | Click                 | Opens device storage                                                                                                 |           |
-| Form image select button      | Display               | Chosen image name displayed once selected                                                                           |           |
-| Form image select button      | Display               | Default image is used if no image is selected                                                                       |           |
-| Cancel button                 | Click                 | Redirects to the Gallery page                                                                                     |           |
-| Add Painting button(form valid) | Click                 | Form submit                                                                                                         |           |
-| Add Painting button(form valid) | Click                 | Redirects to the painting detail page for the new painting with all information displaying correctly                 |           |
-| Add Painting button(form valid) | Click                 | Success message appears informing the user that the painting has been created                                         |           |
-| Add Painting button(form valid) | Click                 | Success message fades after 3 seconds                                                                               |           |
+| Add Painting                   | Access                | If a user tries to add a painting (by changing the URL) without being signed in, they are redirected to the login page |     Pass      |
+| Form Text Input (if required) | Leave blank           | On Submit: Warning appears, form won't submit                                                                       |     Pass      |
+| Painting Title                  | Duplicate Entry       | On Submit: Warning appears, form won't submit                                                                       |      Pass     |
+| Form image select button      | Click                 | Opens device storage                                                                                                 |     Pass      |
+| Form image select button      | Display               | Chosen image name displayed once selected                                                                           |     Pass      |
+| Form image select button      | Display               | Form wont submit if no image selected. Shows warning message.                                                                      |      Pass     |
+| Cancel button                 | Click                 | Redirects to the Gallery page                                                                                     |      Pass     |
+| Add Painting button(form valid) | Click                 | Form submit                                                                                                         |    Pass       |
+| Add Painting button(form valid) | Click                 | Redirects to the painting detail page for the new painting with all information displaying correctly                 |      Pass     |
+| Add Painting button(form valid) | Click                 | Success message appears informing the user that the painting has been created                                         |       Pass    |
+| Add Painting button(form valid) | Click                 | Success message fades after 3 seconds                                                                               |     Pass      |
 
 ## Update Painting Page
 | Element            | Action  | Expected Result                                                                                                         | Pass/Fail |
 |--------------------|---------|-------------------------------------------------------------------------------------------------------------------------|-----------|
-| Update Painting      | Access  | If a user tries to edit another user's painting (by changing the URL), they receive a custom 403 error. (forbidden access) |           |
-| Update Painting      | Access  | If a user tries to edit a painting (by changing the URL) without being signed in, they are redirected to the login page    |           |
-| Update Painting Form | Display | Form has all the fields filled out with the original content                                                            |           |
-| Update Button      | Click   | Updated painting is saved                                                                                                 |           |
-| Update Button      | Click   | Success message appears telling the user that the painting has been successfully updated                                  |           |
-| Update Button      | Click   | Success message fades after 3 seconds                                                                                   |           |
-| Update Button      | Click   | User is redirected back to the current painting page                                                                      |           |
-| Cancel Button      | Click   | User is redirected back to the current painting page                                                                      |           |
+| Update Painting      | Access  | If a user tries to edit another user's painting (by changing the URL), they receive a custom 403 error. (forbidden access) |     Pass      |
+| Update Painting      | Access  | If a user tries to edit a painting (by changing the URL) without being signed in, they are redirected to the login page    |     Pass      |
+| Update Painting Form | Display | Form has all the fields filled out with the original content                                                            |     Pass      |
+| Update Button      | Click   | Updated painting is saved                                                                                                 |     Pass      |
+| Update Button      | Click   | Success message appears telling the user that the painting has been successfully updated                                  |     Pass      |
+| Update Button      | Click   | Success message fades after 3 seconds                                                                                   |      Pass     |
+| Update Button      | Click   | User is redirected back to the current painting page                                                                      |     Pass      |
+| Cancel Button      | Click   | User is redirected back to the current painting page                                                                      |      Pass     |
 
 ## Confirm Delete Painting Page
 | Element       | Action | Expected Result                                                                                                        | Pass/Fail |
 |---------------|--------|------------------------------------------------------------------------------------------------------------------------|-----------|
-| Delete Painting | Access | If a user tries to delete another user's painting (by changing the URL), they receive a custom 403 error.                 |           |
-| Delete Painting | Access | If a user tries to delete a painting (by changing the URL) without being signed in, they are redirected to the login page |           |
-| Delete Button | Click  | Painting is deleted and removed from user paintings page                                                                   |           |
-| Delete Button | Click  | Success message appears telling the user that the painting has been successfully deleted                                 |           |
-| Delete Button | Click  | User is redirected back to the Gallery page                                                                         |           |
+| Delete Painting | Access | If a user tries to delete another user's painting (by changing the URL), they receive a custom 403 error.                 |      Pass     |
+| Delete Painting | Access | If a user tries to delete a painting (by changing the URL) without being signed in, they are redirected to the login page |     Pass      |
+| Delete Button | Click  | Painting is deleted and removed from user paintings page                                                                   |      Pass     |
+| Delete Button | Click  | Success message appears telling the user that the painting has been successfully deleted                                 |     Pass      |
+| Delete Button | Click  | User is redirected back to the Gallery page                                                                         |      Pass     |
 | Cancel Button | Click  | Redirects to the current painting page    
 
 ## My Paintings Page
 
 | Element       | Action | Expected Result                                                                                                        | Pass/Fail |
 |---------------|--------|------------------------------------------------------------------------------------------------------------------------|-----------|
-| My Paintings Page | Access               | If a user tries to access this page (by changing the URL) without being signed in, they are redirected to the Login page |           |
-| My Paintings Page | Display              | Only displays the paintings that the user is the author of |           |
-| Painting Card   | Card Content Display | Display the correct image, painting title, and artist |           |
-| Painting Card   | Click                | Clicking anywhere inside the painting card takes you to the correct painting's detail page |           |
-| Painting Card   | Pagination           | The site will paginate 8 painting cards to a page   |           |
-| Painting Card   | Order                | Paintings are sorted by the newest to the oldest    |           |
+| My Paintings Page | Access               | If a user tries to access this page (by changing the URL) without being signed in, they are redirected to the Login page |     Pass      |
+| My Paintings Page | Display              | Only displays the paintings that the user is the author of |     Pass      |
+| Painting Card   | Card Content Display | Display the correct image, painting title, and artist |      Pass     |
+| Painting Card   | Click                | Clicking anywhere inside the painting card takes you to the correct painting's detail page |     Pass     |
+| Painting Card   | Pagination           | The site will paginate 8 painting cards to a page   |     Pass      |
+| Painting Card   | Order                | Paintings are sorted by the newest to the oldest    |      Pass     |
 
 ## My Favorites Page
 
 | Element       | Action | Expected Result                                                                                                        | Pass/Fail |
 |---------------|--------|------------------------------------------------------------------------------------------------------------------------|-----------|
-| My Favorites Page   | Access               | If a user tries to access this page (by changing the URL) without being signed in, they are redirected to the Login page |           |
-| My Favorites Page   | Display              | Only the paintings that the user has bookmarked are shown |           |
-| Painting Card   | Card Content Display | Display the correct image, painting title, and artist |           |
-| Painting Card   | Click                | Clicking anywhere inside the painting card takes you to the correct painting's detail page |           |
-| Painting Card   | Pagination           | The site will paginate 8 painting cards to a page   |           |
-| Painting Card   | Order                | Paintings are sorted by the newest to the oldest    |           |
+| My Favorites Page   | Access               | If a user tries to access this page (by changing the URL) without being signed in, they are redirected to the Login page |     Pass      |
+| My Favorites Page   | Display              | Only the paintings that the user has bookmarked are shown |     Pass      |
+| Painting Card   | Card Content Display | Display the correct image, painting title, and artist |     Pass      |
+| Painting Card   | Click                | Clicking anywhere inside the painting card takes you to the correct painting's detail page |     Pass      |
+| Painting Card   | Pagination           | The site will paginate 8 painting cards to a page   |     Pass      |
+| Painting Card   | Order                | Paintings are sorted by the newest to the oldest    |      Pass     |
 
 ## Django All Auth Pages
 
 | Element       | Action | Expected Result                                                                                                        | Pass/Fail |
 |---------------|--------|------------------------------------------------------------------------------------------------------------------------|-----------|
 | **Sign Up**        |                     |                                                                |           |
-| Log in link        | Click               | Redirect to the login page                                     |           |
-| Username field     | Leave empty         | On submit: form won't submit                                   |           |
-| Username field     | Insert correct format | On submit: form submit                                         |           |
-| Username field     | Insert duplicate username | On submit: form won't submit                              |           |
-| Email field        | Insert incorrect format | On submit: form won't submit                               |           |
-| Email field        | Insert correct format | On submit: form submit                                         |           |
-| Email field        | Leave empty         | On submit: form submit                                         |           |
-| Email field        | Insert duplicate email | On submit: form won't submit                                   |           |
-| Password field     | Insert incorrect format | On submit: form won't submit                                   |           |
-| Password field     | Passwords don't match | On submit: form won't submit                                   |           |
-| Password field     | Insert correct format and passwords match | On submit: form submit |           |
-| Sign Up button(form valid) | Click        | Form submit                                                    |           |
-| Sign Up button(form valid) | Click        | Redirect to the home page                                      |           |
-| Sign Up button(form valid) | Click        | Success message confirming login appears                      |           |
-| Sign Up button(form valid) | Click        | Success message fades after 3 seconds                          |           |
+| Log in link        | Click               | Redirect to the login page                                     |     Pass      |
+| Username field     | Leave empty         | On submit: form won't submit                                   |      Pass     |
+| Username field     | Insert correct format | On submit: form submit                                         |     Pass      |
+| Username field     | Insert duplicate username | On submit: form won't submit                              |      Pass     |
+| Email field        | Insert incorrect format | On submit: form won't submit                               |      Pass     |
+| Email field        | Insert correct format | On submit: form submit                                         |     Pass      |
+| Email field        | Leave empty         | On submit: form submit                                         |     Pass      |
+| Email field        | Insert duplicate email | On submit: form won't submit                                   |     Pass      |
+| Password field     | Insert incorrect format | On submit: form won't submit                                   |    Pass       |
+| Password field     | Passwords don't match | On submit: form won't submit                                   |     Pass      |
+| Password field     | Insert correct format and passwords match | On submit: form submit |     Pass      |
+| Sign Up button(form valid) | Click        | Form submit                                                    |      Pass     |
+| Sign Up button(form valid) | Click        | Redirect to the home page                                      |     Pass      |
+| Sign Up button(form valid) | Click        | Success message confirming login appears                      |     Pass      |
+| Sign Up button(form valid) | Click        | Success message fades after 3 seconds                          |      Pass     |
 | **Log in**         |                     |                                                                |           |
-| Sign up link       | Click               | Redirect to the sign-up page                                   |           |
-| Username field     | Leave empty         | On submit: form won't submit                                   |           |
-| Username field     | Insert wrong username | On submit: form won't submit                                   |           |
-| Password field     | Leave empty         | On submit: form won't submit                                   |           |
-| Password field     | Insert wrong password | On submit: form won't submit                                   |           |
-| Login button(form valid) | Click         | Form submit                                                    |           |
-| Login button(form valid) | Click         | Redirect to the home page                                      |           |
-| Login button(form valid) | Click         | Success message confirming login appears                      |           |
-| Login button(form valid) | Click         | Success message fades after 3 seconds                          |           |
+| Sign up link       | Click               | Redirect to the sign-up page                                   |     Pass      |
+| Username field     | Leave empty         | On submit: form won't submit                                   |      Pass     |
+| Username field     | Insert wrong username | On submit: form won't submit                                   |     Pass      |
+| Password field     | Leave empty         | On submit: form won't submit                                   |     Pass      |
+| Password field     | Insert wrong password | On submit: form won't submit                                   |    Pass       |
+| Login button(form valid) | Click         | Form submit                                                    |      Pass     |
+| Login button(form valid) | Click         | Redirect to the page where user logged in from                                     |     Pass      |
+| Login button(form valid) | Click         | Success message confirming login appears                      |      Pass     |
+| Login button(form valid) | Click         | Success message fades after 3 seconds                          |      Pass     |
 | **Log Out**        |                     |                                                                |           |
-| Logout button      | Click               | Redirect to the homepage                                       |           |
-| Logout button      | Click               | Success message confirming log out appears                     |           |
-| Logout button      | Click               | Success message fades after 3 seconds                         |           |
+| Logout button      | Click               | Redirect to the homepage                                       |     Pass      |
+| Logout button      | Click               | Success message confirming log out appears                     |      Pass     |
+| Logout button      | Click               | Success message fades after 3 seconds                         |     Pass      |
 
 ### Bugs 
 

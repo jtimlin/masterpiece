@@ -16,18 +16,13 @@
     <div class="row justify-content-center">
         {% for painting in painting_list %}
         <div class="col-sm-6 col-md-4 col-lg-3 px-1 d-flex align-items-stretch">
-            <div class="card mb-3 mx-auto mx-sm-2">
-                {% if "placeholder" in painting.image.url %}
-                <img src="https://res.cloudinary.com/masterpiece23/image/upload/v1698348371/placeholder_tgv6s4.jpg"
-                    class="card-img-top" alt="placeholder image">
-                {% else %}
-                <img src=" {{ painting.image.url }}" alt="painting image" class="card-img-top">
-                {% endif %}
-                <div class="card-body">
+            <div class="card mb-3 mx-auto mx-sm-2">  <!-- My Favorite Paintings - Image styles don't work when placed in a separate .css file due to the presence of Django template tags in the styles. -->
+                <img src=" {{ painting.image.url }}" alt="Painting: {{ painting.title }}" class="card-img-top" style="height: 300px; object-fit: cover;">
+                <div class="card-body text-center">
                     <h2 class="painting-title">{{ painting.title }}</h2>
                     <p>
                         <span><i class="fa-solid fa-paintbrush"></i></span>
-                        <span>Artist: {{ painting.author }}</span>
+                        <span>{{ painting.author }}</span>
                         <span class="btn-like"><i class="far fa-heart"></i> {{ painting.number_of_likes }}</span>
                     </p>
                     <a href="{% url 'painting_detail' painting.slug %}" class="stretched-link"
