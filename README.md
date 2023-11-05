@@ -347,95 +347,42 @@ The lines exceeding the maximal length have been solved by adding the # noqa tag
 
 [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) was run on all pages to check Performance, Accessibility, Best Practices, and SEO scores.
 
+#### I did lighthouse testing before i added image optimizing with Pillow. Results looked like this:
+<details>
+<summary>Lighthouse before Pillow</summary>
+
+![Home Page](https://res.cloudinary.com/masterpiece23/image/upload/v1699179796/lighthouse/lighthouse_index_bad_plrxx6.png)
+
+Gallery page had Largest Contentful Paint 11,5 s. It was bad.
+</details>
+
+#### Here are test results after automated image optimizing:
 <details>
 <summary>Home Page</summary>
 
-![Home Page](#)
+![Home Page](https://res.cloudinary.com/masterpiece23/image/upload/v1699179795/lighthouse/lighthouse_index_optimized_ndjban.png)
+
+Drop of Best Practises is explained in unfixed bugs.
 </details>
+
+#### Pages without cloudinary images has same results and they are great:
 
 <details>
-<summary>About Us</summary>
+<summary>About Us, Add Painting, Logout, Sign Up, Login, Painting delete, Comment update</summary>
 
-![About Us](#)
+![About Us, Add Painting, Logout, Sign Up, Login, Painting delete, Comment update](https://res.cloudinary.com/masterpiece23/image/upload/v1699180352/lighthouse/aboutus_sqjkx2.png)
 </details>
+
+#### Pages with cloudinary images has performance drop and best practises drop:
 
 <details>
-<summary>Gallery</summary>
+<summary>Gallery, My Paintings, My favorites, Update Painting and Painting Details</summary>
 
-![Gallery](#)
+![Gallery](https://res.cloudinary.com/masterpiece23/image/upload/v1699180352/lighthouse/gallery_cbaqhl.png)
 
-The drop in the performance is explained by the images and styles loading from an external source, [Cloudinary](https://cloudinary.com/).
+The drop in the performance is explained by the images and styles loading from an external source, [Cloudinary](https://cloudinary.com/) (240ms) and Bootsrap CDN (270ms). Also Drop of Best Practises is explained in unfixed bugs.
 </details>
 
-<details>
-<summary>Add Painting</summary>
-
-![Add Painting](#)
-</details>
-
-<details>
-<summary>My Paintings</summary>
-
-![My Paintings](#)
-</details>
-
-<details>
-<summary>My Favorites</summary>
-
-![My Favorites](#)
-</details>
-
-<details>
-<summary>Logout</summary>
-
-![Logout](#)
-</details>
-
-<details>
-<summary>Sign Up</summary>
-
-![Sign Up](#)
-</details>
-
-<details>
-<summary>Login</summary>
-
-![Login](#)
-</details>
-
-<details>
-<summary>Painting Details</summary>
-
-![Painting Details](#)
-
-The drop in the performance is explained by the images and styles loading from an external source, [Cloudinary](https://cloudinary.com/).
-</details>
-
-<details>
-<summary>Painting Update</summary>
-
-![Painting Update](#)
-
-The drop of the [accessibility](<https://cdn.discordapp.com/attachments/1049024982694498367/1136306366114439329/image.png>) is explained by missing titles. The [titles](https://cdn.discordapp.com/attachments/1049024982694498367/1136306366361911477/image.png) are not actually missing. The problem is caused by the use of the Summernote extension.
-</details>
-
-<details>
-<summary>Painting Delete</summary>
-
-![Painting Delete](#)
-</details>
-
-<details>
-<summary>Comment Update</summary>
-
-![Comment Update](#)
-</details>
-
-<details>
-<summary>Comment Delete</summary>
-
-![Comment Delete](#)
-</details>
 
 ## Browser Testing
 - The website was tested on Google Chrome and Microsoft Edge browsers with no issues noted.
@@ -619,6 +566,13 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 
 ### Fixed Bugs
 
+#### JavaScript Error on console
+- **Problem**: alert.js:38 Uncaught TypeError: Cannot read properties of null (reading 'defaultPrevented')
+    at U.close (alert.js:38:60)
+    at gallery/:201:17
+- **Issue**: This had to do with the javascript message automatic closing function. It was all the time looking for something with id msg to close but when there isnt any it will throw an error.
+- **Solution**: To prevent this error i added a conditional check (document.addEventListener("DOMContentLoaded")) to ensure that the element with the ID "msg" exists before attempting to close it. 
+
 #### CSRF Verification Failed with Allauth
 - **Problem**: Allauth was not allowing login or signup and displayed a "CSRF verification failed. Request aborted." message.
 - **Solution**: The issue was related to a newer version of Allauth. The solution involved adding CSRF trusted origins to the settings.py file. [More details](https://stackoverflow.com/questions/70285834/forbidden-403-csrf-verification-failed-request-aborted-reason-given-for-fail)
@@ -641,6 +595,7 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 - **Problem**: Image sizes were too large.
 - **Issue**: Attempting to automate image optimization with Cloudinary resulted in image sizes that were still too big.
 - **Solution**: It was found that Cloudinary's automated optimization requires a paid service. The issue was addressed by exploring image optimization alternatives, such as using Django's Pillow library.
+- **Continues**: Pillow was used to optimize and resize images before they get upoaded to cloudinary. This 
 
 #### Error on Upload Image Page
 - **Problem**: The Upload Image page displayed an error message stating, "Invalid image file. Please upload a valid image file," even for valid image formats like jpg or png.
@@ -649,8 +604,16 @@ The drop of the [accessibility](<https://cdn.discordapp.com/attachments/10490249
 
 ### Unfixed bugs:
 
-- #### Not there yet
-     - **Bug**: Here will be something.
+- #### Lighthouse Best Practises drop
+     - **Bug**: Does not use HTTPS
+     - Images loading from Cloudinary are not served over HTTPS. They automatically get upgraded to HTTPS, but for some reason, they load from Cloudinary without the "s" in the "http."
+     #### I have:
+     - I have looked into Cloudinary settings, but there are no options for addressing this issue. It cannot be added to the API.
+     - I have attempted to add code to the view that checks if the address has an "s" in its "http," and if not, it will be added. Unfortunately, this approach did not work.
+     #### Possible solutions:
+     - Add an SSL certificate to Heroku.
+     - Contact Cloudinary for support regarding this problem.
+      Due to the limited time left before project submission, this issue will be addressed in future development.
 
 
 ## Security Features and Defensive Design
@@ -765,6 +728,7 @@ Custom Error Pages have been implemented to offer users more information about t
 - The description is an optional field.
 - For users attempting to add a painting without being logged in, they will be automatically redirected to the login page, preventing unauthorized access.
 - Following the successful addition of a painting, users are promptly presented with a success message confirming the completion of the process.
+- Before images are uploaded to Cloudinary, they are resized to a maximum of 1280 pixels on the longest side to maintain the correct proportions and are optimized. This also prevents anyone from copying the images and printing them.
 
 ### Update Painting Form
 
