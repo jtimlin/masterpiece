@@ -604,7 +604,7 @@ The drop in the performance is explained by the images and styles loading from a
 
 ### Unfixed bugs:
 
-- #### Lighthouse Best Practises drop
+- #### Lighthouse Best Practises drop.
      - **Bug**: Does not use HTTPS
      - Images loading from Cloudinary are not served over HTTPS. They automatically get upgraded to HTTPS, but for some reason, they load from Cloudinary without the "s" in the "http."
      #### I have:
@@ -615,7 +615,7 @@ The drop in the performance is explained by the images and styles loading from a
      - Contact Cloudinary for support regarding this problem.
       Due to the limited time left before project submission, this issue will be addressed in future development.
 
-- #### Lighthouse Best Practises drop
+- #### Use of 'eval' in JavaScript.
      - **Bug**: Content Security Policy of your site blocks the use of 'eval' in JavaScript`
      - There is eval in the javascript code that i tried to improve from code institutes django blog I Think Therefore I Blog.
 
