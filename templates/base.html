@@ -105,7 +105,7 @@
     <!-- Alert messages self disappear function -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        setTimeout(function () {
+        setTimeout(() => {
           let messages = document.getElementById("msg");
           if (messages) {
             let alert = new bootstrap.Alert(messages);
