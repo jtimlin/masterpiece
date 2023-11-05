@@ -615,6 +615,9 @@ The drop in the performance is explained by the images and styles loading from a
      - Contact Cloudinary for support regarding this problem.
       Due to the limited time left before project submission, this issue will be addressed in future development.
 
+- #### Lighthouse Best Practises drop
+     - **Bug**: Content Security Policy of your site blocks the use of 'eval' in JavaScript`
+     - There is eval in the javascript code that i tried to improve from code institutes django blog I Think Therefore I Blog.
 
 ## Security Features and Defensive Design
 
